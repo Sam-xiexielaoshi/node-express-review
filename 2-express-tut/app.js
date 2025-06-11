@@ -1,11 +1,17 @@
 const express = require("express");
 const app = express();
-const {products,people} = require('./data')
 
-app.get("/", (req, res) => {
-  res.json(products, people);
-});
+// req => middleware => res
+
+app.get('/', (req,res)=>{
+  res.send('Home Page')
+})
+
+app.get('/about', (req,res)=>{
+  res.send('About Page')
+})
+
 
 app.listen(5000, () => {
-  console.log(`the server is running on port 5000...`);
+  console.log("the server is running on port 5000");
 });
